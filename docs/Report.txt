@@ -1,0 +1,44 @@
+Project Report: Information Retrieval Engine
+
+Introduction
+
+This project entails the creation of an Information Retrieval (IR) engine that generates forward and inverted indexing from a set of documents.
+Documents are scanned by the IR engine in order to support indexing of documents for search terms defined by a user.
+The components of this project include the TextProcessor, DocIndex, InvertedIndex, QueryProcessor, and Main classes.
+  
+Design and Implementation
+
+Text Processor
+
+The TextProcessor class is responsible for processing the actual content of the documents. 
+This includes removing stop words, as well as stemming, using the Porter stemmer. 
+The tokens processed will be forwarded to the indexing process.
+
+DocIndex
+The DocIndex class maintains a forward index, mapping the docID to word frequency.
+This index will help understand the distribution frequency of terms in the document.
+
+InvertedIndex
+
+The InvertedIndex class maintains an inverted index that maps words to docID and frequency. 
+This index allows more efficient retrieval of documents that contain terms searched by a user.
+    
+QueryProcessor
+
+The QueryProcessor class uses the Inverted Index to retrieve search terms and return documents.
+A method to process the query is available that returns the query terms as well as their respective frequency in the document.
+
+
+Main
+The Main class controls and coordinates the entire process.
+The Main class loads stop words, initializes the Porter stemmer and text processor, reads input documents from the input directory, processes the documents, and generates a forward and inverted index from the documents. 
+It is also responsible for returning user queries and displaying a return to the search.
+
+Compile Java Files:
+
+javac -d bin src/com/ir/*.java
+
+Run the Main Class:
+
+java -cp bin com.ir.Main
+
